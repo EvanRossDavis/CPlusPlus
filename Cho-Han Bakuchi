@@ -1,0 +1,84 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <string>
+#include <ctime>
+using namespace std;
+
+
+int main()
+{
+	unsigned seed = time(0);
+	srand(seed);
+	float bank = 10000;
+	float bet = 0;
+	int max = 6;
+	int die1 = rand() % max + 1;;
+	int die2 = rand() % max + 1;;
+	int diceSum = 0;
+	int selection = 0;
+	string oddEven = "";
+	int gamesWon = 0;
+	int gamesLost = 0;
+	int diceMod = 0;
+
+
+	cout << "Welcome to Cho-Han Bakuchi!\n\n";
+	cout << "[1] Play Cho - Han Bakuchi\n";
+	cout << "[2] Show current stats\n";
+	cout << "[3] Quit\n";
+
+	cin >> selection;
+
+	switch (selection)
+	{
+	case 1:
+		cout << "Select amount to bet\n";
+		cin >> bet;
+		cout << "Choose odd or even\n";
+		cin >> oddEven;
+
+		cout << "You rolled a " << die1 << "and a " << die2 << endl;
+
+		diceSum = die1 + die2;
+
+		cout << "The sum of your dice is " << diceSum << endl;
+
+		diceMod = diceSum % 2;
+
+		if ((diceMod == 0) && (oddEven == "even"))
+		{
+			cout << "You won " << bet << endl;
+			bank += bet;
+		}
+		else
+		{
+			cout << "You lost " << bet << endl;
+			bank -= bet;
+		}
+
+
+		break;
+
+	case 2:
+		cout << "You have won, " << gamesWon << " games\n";
+		cout << "You have lost, " << gamesLost << " games\n";
+		break;
+
+	case 3:
+		cout << "Thanks for playing.... Please come again....\n";
+		if (bank == 0)
+			cout << "You lost everything. Better luck next time.\n";
+		else
+			cout << "You won $" << bank << endl;
+		break;
+
+	}
+	return 0;
+}
+
+
