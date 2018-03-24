@@ -1,0 +1,137 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+struct ContactInfo
+{
+
+	string email;
+	string phoneNumber;
+	//Constructor
+	ContactInfo()
+	{
+		email = "";
+		phoneNumber = "";
+	}
+};
+
+struct student
+{
+	string name;
+	int id;
+	float gpa;
+	bool likesCoffee;
+	string email;
+
+	// Constructor
+	student(string n, int i, float g, bool lc)
+	{
+		name = n;
+		id = i;
+		gpa = g;
+		likesCoffee = lc;
+	}
+
+	student(string n)
+	{
+		name = "";
+		id = -99;
+		gpa = 0.0;
+		likesCoffee = true;
+	}
+
+	student()
+	{
+		name = "";
+		id = -99;
+		gpa = 0.0;
+		likesCoffee = true;
+	}
+};
+
+
+
+float ComputeAverageGPA(float gpa1, float gpa2, float gpa3);
+void DisplayStudentInfo(student s1);
+void InputStudentValue(student &s1);
+void ComputeHighestGPA(student s1, student s2, student s3);
+
+
+int main()
+{
+	student Stud1;
+	Stud1.name = "Clinton";
+	Stud1.gpa = 5.0;
+	Stud1.likesCoffee = false;
+	Stud1.id = 9999;
+
+	student Stud2;
+	Stud2.name = "Carsen";
+	Stud2.gpa = 8.0;
+	Stud2.likesCoffee = true;
+	Stud2.id = 8888;
+
+	student Stud3 = { "test" };
+	//InputStudentValue(Stud3);
+
+	DisplayStudentInfo(Stud1);
+	DisplayStudentInfo(Stud2);
+	DisplayStudentInfo(Stud3);
+
+	ComputeHighestGPA(Stud1, Stud2, Stud3);
+
+	float AvgGPA = ComputeAverageGPA(Stud1.gpa, Stud2.gpa, Stud3.gpa);
+	cout << "The average GPA is... \n" << AvgGPA << endl;
+
+	cout << "Highest GPA\n";
+	ComputeHighestGPA(Stud1, Stud2, Stud3);
+
+	int c;
+	cin >> c;
+	return 0;
+}
+
+void DisplayStudentInfo(student s1)
+{
+	cout << "Name: " << s1.name << endl;
+	cout << "ID: " << s1.id << endl;
+	cout << "GPA: " << s1.gpa << endl;
+	cout << "Likes Coffee: " << s1.likesCoffee << endl;
+	cout << "Email:" << s1.email << endl << endl;
+}
+
+void InputStudentValue(student &s1)
+{
+	cout << "Please enter in a name\n";
+	cin >> s1.name;
+	cout << "Please enter in a n id number\n";
+	cin >> s1.id;
+	cout << "Please enter in a GPA\n";
+	cin >> s1.gpa;
+
+	string likesCoffee;
+	cout << "Do you like coffee (Y/N)\n";
+	cin >> likesCoffee;
+	if (likesCoffee == "Y")
+		s1.likesCoffee = true;
+	else
+		s1.likesCoffee = false;
+}
+float ComputeAverageGPA(float gpa1, float gpa2, float gpa3)
+{
+	return (gpa1 + gpa2 + gpa3) / 3;
+}
+
+void ComputeHighestGPA(student s1, student s2, student s3)
+{
+	if (s1.gpa > s2.gpa && s1.gpa > s3.gpa)
+		DisplayStudentInfo(s1);
+	else if (s2.gpa > s1.gpa && s2.gpa > s3.gpa)
+		DisplayStudentInfo(s2);
+	else
+		DisplayStudentInfo(s3);
+}
