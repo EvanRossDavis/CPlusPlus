@@ -1,0 +1,232 @@
+//[PointerOperations.cpp]
+//[Evan Davis]
+//[07/05/2017
+//[ERD17B]
+
+#include <iostream>
+
+
+// Function Prototypes=========================================================
+// Do NOT change the signature of these function prototypes.
+// If you do, your code will not compile with my altered main() function
+// I suggest that you copy the prototypes below and then fill them in.
+// ----------------------------------------------------------------------------
+// Read in a line of text INCLUDING SPACES into a string.
+// You may assume that the input will NOT exceed the maxLength available.
+// Keep in mind that cin stops reading at a whitespace. See page 318.
+void ReadString(char * c, int maxLength);
+
+// Get the length of the string and store it in length
+// Hint: How does C++ terminate a string? Look for that character!
+void GetStringLength(char * c, int * length);
+
+// PrintString - Just print the string in forward order using cout
+void PrintString(char * const c); //COUT
+
+// PrintStringBackwards - Print the string in reverse order using cout
+void PrintStringBackwards(char * const c); //COUT 
+
+// Search the string for the test character. Return -1 if not found
+int FindIndexOfCharacter(char * c, char testVal);
+
+// Return a pointer to the character at the index given
+char * GetValueAtIndex(char * const c, int index);
+
+// Return the ascii integer value of the character at requested index
+int GetIntegerValueOfIndex(char * c, int index);
+
+// Print the hexadecimal value of the character at the requested index
+void PrintHexValueAtIndex(char * c, int index); //COUT
+
+// Make the entire string uppercase
+void MakeUpperCase(char * c);
+
+// Make the entire string lowercase
+void MakeLowerCase(char * c);
+
+// ============================================================================
+
+// DO NOT REMOVE THESE COMMENTS -- comments that start with @ are actually
+// commands to the assessment tool.
+//@include(main)
+//@addRule(commentAll)
+int main()
+{
+	// Use these variables to test.
+	// SIZE could change so make sure your code works with different sizes.
+	const int SIZE = 80; //SIZE is a constant type integer
+	char ca[SIZE]; //character array 80 as delim
+	char * pc = ca; // pc is a pointer to a character with the value of ca can be changed
+	int fPrints = 0;
+	int bPrints = 0;
+	int lengthChecks = 0;
+	int selection = 0;
+
+	// Your code below
+	// =========================
+	while (selection != 99)
+	{
+
+		std::cout << "[ 1] Test ReadString \n" //case 1
+			<< "[ 2] Test GetStringLength \n"
+			<< "[ 3] Test PrintSptring \n"
+			<< "[ 4] Test PrintStringBackwards \n"
+			<< "[ 5] Test FindIndexOfCharacter \n"
+			<< "[ 6] Test GetValueAtIndex \n"
+			<< "[ 7] Test MakeUppercase \n"
+			<< "[ 8] Test MakeLowerCase \n"
+			<< "[ 9] Test GetIntegerValueOfIndex \n"
+			<< "[10] Test PrintHexValueAtIndex \n"
+			<< "[99] Quit \n";
+
+		std::cout << "Selection: ";
+		std::cin >> selection;
+
+
+		switch (selection)
+		{
+
+		case 1:
+			
+			
+
+			ReadString(pc, SIZE);
+
+			
+			break;
+
+
+		case 2:
+			for (int length = 0; *(pc + length); length++)
+
+				std::cout << length << std::endl;
+			
+			break;
+
+		case 3:
+
+			std::cout << pc << std::endl;
+			break;
+
+
+
+		case 4:
+
+
+			break;
+
+
+		case 5:
+
+
+			break;
+
+
+		case 6:
+
+
+			break;
+
+		case 7:
+
+
+			break;
+
+
+		case 8:
+
+
+			break;
+
+
+		case 9:
+
+
+			break;
+
+		case 10:
+
+
+			break;
+
+
+		default:
+
+			break;
+		}
+	}
+
+	
+	
+	
+	// =========================
+	// Your code above
+
+}
+// DO NOT REMOVE THESE COMMENTS -- these comments are actually
+// commands to the assessment tool.
+//@removeRule(commentAll)
+
+void ReadString(char * c, int maxLength)
+{
+	std::cout << "Enter a string less than " << maxLength << " characters." << std::endl;
+	// Your code here
+	// ==============================
+	std::cin.ignore();
+	std::cin.getline(c, maxLength);
+	
+	// ==============================
+}
+
+void GetStringLength(char * c, int * length)
+{
+	
+	
+
+}
+
+void PrintString(char * const c) //COUT 
+{
+	std::cout << c << std::endl;
+}
+
+void PrintStringBackwards(char * const c) //COUT 
+{
+	
+}
+
+										   
+int FindIndexOfCharacter(char * c, char testVal) // Search the string for the test character. Return -1 if not found
+{
+	return testVal;
+}
+
+
+char * GetValueAtIndex(char * const c, int index) // Return a pointer to the character at the index given
+{
+	return c;
+}
+
+
+int GetIntegerValueOfIndex(char * c, int index) // Return the ascii integer value of the character at requested index
+{
+	return index;
+}
+
+
+void PrintHexValueAtIndex(char * c, int index) // COUT Print the hexadecimal value of the character at the requested index
+{
+
+}
+												
+void MakeUpperCase(char * c) // Make the entire string uppercase
+{
+
+}
+
+void MakeLowerCase(char * c) // Make the entire string lowercase
+{
+
+}
+// You need to provide the rest of the functions
+// See Function Prototypes at the top.
